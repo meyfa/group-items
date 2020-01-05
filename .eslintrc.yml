@@ -1,0 +1,74 @@
+env:
+    browser: false
+    node: true
+
+parserOptions:
+    ecmaVersion: 2017
+
+rules:
+    # important
+    eol-last: [error, always]
+    no-irregular-whitespace: [error]
+    strict: [error, global]
+    eqeqeq: [error]
+    no-use-before-define: [error, { functions: false, variables: true }]
+    no-invalid-regexp: [error]
+    no-empty-character-class: [error]
+    no-unreachable: [error]
+    semi: [error, always]
+    no-unexpected-multiline: [error]
+    no-dupe-args: [error]
+    no-dupe-keys: [error]
+    no-duplicate-case: [error]
+    valid-typeof: [error]
+    no-unsafe-negation: [error]
+    no-redeclare: [error]
+    no-delete-var: [error]
+
+    # possible errors
+    no-obj-calls: [error]
+    no-unused-vars: [error, { vars: all, args: none }]
+    no-shadow: [error]
+    no-compare-neg-zero: [error]
+    no-cond-assign: [error]
+    no-return-assign: [error]
+    no-sparse-arrays: [error]
+    radix: [error]
+    handle-callback-err: [error]
+    no-constant-condition: [warn]
+    no-extra-boolean-cast: [warn]
+    no-param-reassign: [warn]
+    no-self-assign: [warn]
+    no-self-compare: [warn]
+    no-throw-literal: [warn]
+    no-useless-return: [warn]
+
+    # documentation
+    valid-jsdoc: [error]
+
+    # deprecations
+    no-octal: [error]
+    no-octal-escape: [error]
+    no-with: [error]
+    no-eval: [error]
+    no-alert: [warn]
+    no-debugger: [warn]
+    no-var: [warn]
+
+    # style
+    wrap-iife: [error, any]
+    max-len: [warn, 120]
+    no-trailing-spaces: [warn]
+    space-in-parens: [warn, never]
+    no-extra-parens: [warn]
+    indent: [warn, 4]
+    quotes: [warn, double, { avoidEscape: true }]
+    camelcase: [warn, { properties: always }]
+    space-before-blocks: [warn, always]
+    curly: [warn, all]
+    no-empty: [warn]
+    brace-style: [warn, 1tbs]
+    comma-style: [warn, last]
+    comma-dangle: [warn, always-multiline]
+    dot-notation: [warn]
+    yoda: [warn]
