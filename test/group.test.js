@@ -86,4 +86,26 @@ describe("group.js", function () {
         expect(result[1].items[0]).to.equal(obj2);
     });
 
+    it("supports String as input", function () {
+        expect(group("abcdefg").by((c) => c.charCodeAt(0) % 2).asEntries()).to.deep.equal([
+            { key: 1, items: ["a", "c", "e", "g"] },
+            { key: 0, items: ["b", "d", "f"] },
+        ]);
+    });
+
+    it("supports Set as input", function () {
+        expect(group(new Set([0, 1, 2, 3, 4])).by((i) => i % 2).asEntries()).to.deep.equal([
+            { key: 0, items: [0, 2, 4] },
+            { key: 1, items: [1, 3] },
+        ]);
+    });
+
+    it("supports Map as input", function () {
+        const map = new Map([[1, "a"], [2, "b"], [3, "a"]]);
+        expect(group(map).by((e) => e[1]).asEntries()).to.deep.equal([
+            { key: "a", items: [[1, "a"], [3, "a"]] },
+            { key: "b", items: [[2, "b"]] },
+        ]);
+    });
+
 });
