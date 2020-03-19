@@ -10,21 +10,21 @@ complex, and into whatever structure you desire.
 Example:
 
 ```js
-const group = require("group-items");
+const group = require('group-items')
 
 // group names by length
-const items = ["James", "John", "Robert", "Michael", "William", "David"];
-const byLength = group(items).by("length").asObject();
+const items = ['James', 'John', 'Robert', 'Michael', 'William', 'David']
+const byLength = group(items).by('length').asObject()
 
-console.log(byLength);
+console.log(byLength)
 ```
 
 ```js
 {
-    4: ["John"],
-    5: ["James", "David"],
-    6: ["Robert"],
-    7: ["Michael", "William"],
+  4: ['John'],
+  5: ['James', 'David'],
+  6: ['Robert'],
+  7: ['Michael', 'William']
 }
 ```
 
@@ -35,13 +35,13 @@ generated and there are other collectors in addition to `.asObject()`.
 ## Usage
 
 ```js
-const group = require("group-items");
+const group = require('group-items')
 ```
 
 The basic workflow is as follows:
 
 1. Start a grouping: `group(Iterable)`
-2. Provide a keying: `.by("property")` or `.by(item => fn(item))`
+2. Provide a keying: `.by('property')` or `.by(item => fn(item))`
 3. Collect the results: `.asObject()`, `.asTuples()`, `.keys()`, etc.
 
 ### 1. Group creation
@@ -82,8 +82,8 @@ customized.
 
 Options:
 
-- `keyName`: name of the key property (default: `"key"`)
-- `itemsName`: name of the items property (default: `"items"`)
+- `keyName`: name of the key property (default: `'key'`)
+- `itemsName`: name of the items property (default: `'items'`)
 
 `.asMap()`
 
@@ -129,7 +129,7 @@ group([0, 1, 2, 3, 4, 5])
 {
     0: [0, 3],
     1: [1, 4],
-    2: [2, 5],
+    2: [2, 5]
 }
 ```
 
@@ -137,38 +137,38 @@ group([0, 1, 2, 3, 4, 5])
 
 ```js
 const events = [
-    { date: [2020, 3,  1], title: "EDC Mexico" },
-    { date: [2020, 3, 21], title: "Ultra Music Festival (ASOT)" },
-    { date: [2020, 3, 21], title: "This Is Me" },
-    { date: [2020, 3, 29], title: "Creamfields" },
+    { date: [2020, 3,  1], title: 'EDC Mexico' },
+    { date: [2020, 3, 21], title: 'Ultra Music Festival (ASOT)' },
+    { date: [2020, 3, 21], title: 'This Is Me' },
+    { date: [2020, 3, 29], title: 'Creamfields' },
     //...
-];
+]
 
-group(events).by("date").asMap()
+group(events).by('date').asMap()
 ```
 
 ```js
 Map {
-    [2020, 3, 1] => [ { date: [2020, 3, 1], title: "EDC Mexico" } ],
+    [2020, 3, 1] => [ { date: [2020, 3, 1], title: 'EDC Mexico' } ],
     [2020, 3, 21] => [
-        { date: [2020, 3, 21], title: "Ultra Music Festival (ASOT)" },
-        { date: [2020, 3, 21], title: "This Is Me" }
+        { date: [2020, 3, 21], title: 'Ultra Music Festival (ASOT)' },
+        { date: [2020, 3, 21], title: 'This Is Me' }
     ],
-    [2020, 3, 29] => [ { date: [2020, 3, 29], title: "Creamfields" } ]
+    [2020, 3, 29] => [ { date: [2020, 3, 29], title: 'Creamfields' } ]
 }
 ```
 
 Or alternatively:
 
 ```js
-group(events).by("date").asEntries({ keyName: "date", itemsName: "events" })
+group(events).by('date').asEntries({ keyName: 'date', itemsName: 'events' })
 ```
 
 ```js
 [
     { date: [2020, 3, 1], events: [ /* ... */ ] },
     { date: [2020, 3, 21], events: [ /* ... */ ] },
-    { date: [2020, 3, 29], events: [ /* ... */ ] },
+    { date: [2020, 3, 29], events: [ /* ... */ ] }
 ]
 ```
 
@@ -180,13 +180,13 @@ the idea.
 ```js
 // initialize some mappings
 const map = new Map([
-    [0, "foo"], [2, "foo"], [3, "bar"], [8, "foo"], [9, "qux"], [11, "bar"],
-]);
+    [0, 'foo'], [2, 'foo'], [3, 'bar'], [8, 'foo'], [9, 'qux'], [11, 'bar']
+])
 
 // create a reverse map (map each value to its respective keys)
 group(map).by(entry => entry[1]).keys()
 ```
 
 ```js
-["foo", "bar", "qux"]
+['foo', 'bar', 'qux']
 ```
