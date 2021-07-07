@@ -1,10 +1,8 @@
-'use strict'
+import { expect } from 'chai'
 
-const { expect } = require('chai')
+import { asObject } from '../../lib/collectors/as-object'
 
-const asObject = require('../../lib/collectors/as-object.js')
-
-describe('collectors/as-object.js', function () {
+describe('collectors/as-object.ts', function () {
   it('returns empty object for empty input', function () {
     expect(asObject([])).to.deep.equal({})
   })

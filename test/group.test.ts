@@ -1,10 +1,8 @@
-'use strict'
+import { expect } from 'chai'
 
-const { expect } = require('chai')
+import { group } from '../lib/group'
 
-const group = require('../lib/group.js')
-
-describe('group.js', function () {
+describe('group.ts', function () {
   it("has function property 'by'", function () {
     expect(group([])).to.have.property('by').that.is.a('function')
   })
@@ -55,16 +53,16 @@ describe('group.js', function () {
     // first group
     expect(result[0].key).to.deep.equal({ a: 1 })
     expect(result[0].items).to.have.lengthOf(2)
-    expect(result[0].items[0]).to.equal(obj0)
-    expect(result[0].items[1]).to.equal(obj1)
+    expect((result[0].items as any[])[0]).to.equal(obj0)
+    expect((result[0].items as any[])[1]).to.equal(obj1)
     // second group
     expect(result[1].key).to.deep.equal({ a: 2 })
     expect(result[1].items).to.have.lengthOf(1)
-    expect(result[1].items[0]).to.equal(obj2)
+    expect((result[1].items as any[])[0]).to.equal(obj2)
     // third group
     expect(result[2].key).to.deep.equal({})
     expect(result[2].items).to.have.lengthOf(1)
-    expect(result[2].items[0]).to.equal(obj3)
+    expect((result[2].items as any[])[0]).to.equal(obj3)
   })
 
   it('correctly groups objects by some property', function () {

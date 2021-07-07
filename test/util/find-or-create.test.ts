@@ -1,10 +1,8 @@
-'use strict'
+import { expect } from 'chai'
 
-const { expect } = require('chai')
+import { findOrCreate } from '../../lib/util/find-or-create'
 
-const findOrCreate = require('../../lib/util/find-or-create.js')
-
-describe('util/find-or-create.js', function () {
+describe('util/find-or-create.ts', function () {
   describe('match', function () {
     it('returns first match', function () {
       const arr = [1, 2, 3, 4, 5, 6]
@@ -19,7 +17,10 @@ describe('util/find-or-create.js', function () {
 
     it('does not call construct on match', function (done) {
       const arr = [1, 2, 3, 4, 5, 6]
-      findOrCreate(arr, (i) => i % 2 === 0, () => done(new Error('called')))
+      findOrCreate(arr, (i) => i % 2 === 0, () => {
+        done(new Error('called'))
+        return 0
+      })
       done()
     })
 
@@ -49,7 +50,7 @@ describe('util/find-or-create.js', function () {
     })
 
     it('always constructs if array is empty', function () {
-      const arr = []
+      const arr: number[] = []
       expect(findOrCreate(arr, () => true, () => 42)).to.equal(42)
       expect(arr).to.deep.equal([42])
     })

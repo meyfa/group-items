@@ -1,10 +1,8 @@
-'use strict'
+import { expect } from 'chai'
 
-const { expect } = require('chai')
+import { asTuples } from '../../lib/collectors/as-tuples'
 
-const asTuples = require('../../lib/collectors/as-tuples.js')
-
-describe('collectors/as-tuples.js', function () {
+describe('collectors/as-tuples.ts', function () {
   it('returns empty array for empty input', function () {
     expect(asTuples([])).to.deep.equal([])
   })

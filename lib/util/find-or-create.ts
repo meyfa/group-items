@@ -1,7 +1,3 @@
-'use strict'
-
-// MAIN EXPORT
-
 /**
  * Find the array entry matching the given predicate. If none match, create a
  * default entry and push it into the array. In either case, the entry will be
@@ -11,12 +7,12 @@
  *
  * THIS MODIFIES THE ARRAY.
  *
- * @param {*[]} arr The array to search.
- * @param {Function} predicate The search condition.
- * @param {Function} construct The creator function.
- * @returns {*} The entry that was found, or created.
+ * @param arr The array to search.
+ * @param predicate The search condition.
+ * @param construct The creator function.
+ * @returns The entry that was found, or created.
  */
-function findOrCreate (arr, predicate, construct) {
+export function findOrCreate<T> (arr: T[], predicate: (t: T) => boolean, construct: () => T): T {
   const index = arr.findIndex((entry) => predicate(entry))
   if (index >= 0) {
     return arr[index]
@@ -25,5 +21,3 @@ function findOrCreate (arr, predicate, construct) {
   arr.push(newEntry)
   return newEntry
 }
-
-module.exports = findOrCreate

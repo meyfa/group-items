@@ -1,0 +1,14 @@
+root: true
+
+extends:
+  - 'standard-with-typescript'
+
+parserOptions:
+  project: '../tsconfig.eslint.json'
+
+env:
+  mocha: true
+rules:
+  no-unused-expressions: off
+  '@typescript-eslint/no-unused-expressions': off
+  '@typescript-eslint/no-floating-promises': off
