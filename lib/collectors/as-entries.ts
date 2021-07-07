@@ -15,16 +15,25 @@ export type EntriesCollection<K, V> = Array<Record<string, K | V[]>>
  * - keyName: name of `key` property in resulting objects
  * - itemsName: name of `items` property in resulting objects
  *
- * @param groups The grouping.
  * @param options Collector options.
  * @returns The resulting array.
  */
-export function asEntries<K, V> (groups: Grouping<K, V>, options?: EntriesCollectorOptions): EntriesCollection<K, V> {
-  const keyName = options?.keyName ?? 'key'
-  const itemsName = options?.itemsName ?? 'items'
+export type EntriesCollector<K, V> = (options?: EntriesCollectorOptions) => EntriesCollection<K, V>
 
-  return groups.map((g: GroupingEntry<K, V>) => ({
-    [keyName]: g.key,
-    [itemsName]: g.items
-  }))
+/**
+ * Create an EntriesCollector for the given grouping.
+ *
+ * @param groups The grouping.
+ * @returns The created collector.
+ */
+export function asEntriesFactory<K, V> (groups: Grouping<K, V>): EntriesCollector<K, V> {
+  return (options?: EntriesCollectorOptions) => {
+    const keyName = options?.keyName ?? 'key'
+    const itemsName = options?.itemsName ?? 'items'
+
+    return groups.map((g: GroupingEntry<K, V>) => ({
+      [keyName]: g.key,
+      [itemsName]: g.items
+    }))
+  }
 }

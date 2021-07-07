@@ -5,13 +5,22 @@ export type MapCollection<K, V> = Map<K, V[]>
 /**
  * Convert the grouping to a Map.
  *
- * @param groups The grouping.
- * @returns The resulting map.
+ * @returns The resulting Map.
  */
-export function asMap<K, V> (groups: Grouping<K, V>): MapCollection<K, V> {
-  const map = new Map()
-  for (const group of groups) {
-    map.set(group.key, group.items)
+export type MapCollector<K, V> = () => MapCollection<K, V>
+
+/**
+ * Create a MapCollector for the given grouping.
+ *
+ * @param groups The grouping.
+ * @returns The created collector.
+ */
+export function asMapFactory<K, V> (groups: Grouping<K, V>): MapCollector<K, V> {
+  return () => {
+    const map = new Map()
+    for (const group of groups) {
+      map.set(group.key, group.items)
+    }
+    return map
   }
-  return map
 }

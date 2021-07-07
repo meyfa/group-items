@@ -5,9 +5,18 @@ export type KeysCollection<K> = K[]
 /**
  * Convert the grouping to an array of keys.
  *
- * @param groups The grouping.
  * @returns The resulting array.
  */
-export function keys<K> (groups: Grouping<K, any>): KeysCollection<K> {
-  return groups.map((g) => g.key)
+export type KeysCollector<K> = () => KeysCollection<K>
+
+/**
+ * Create a TuplesCollector for the given grouping.
+ *
+ * @param groups The grouping.
+ * @returns The created collector.
+ */
+export function keysFactory<K, V> (groups: Grouping<K, V>): KeysCollector<K> {
+  return () => {
+    return groups.map((g) => g.key)
+  }
 }
