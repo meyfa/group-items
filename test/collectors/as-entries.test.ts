@@ -51,4 +51,15 @@ describe('collectors/as-entries.ts', function () {
       { key: 2, bar: [4, 5, 6] }
     ])
   })
+
+  it('allows specifying both keyName and itemsName options', function () {
+    const collector = asEntriesFactory([
+      { key: 1, items: [1, 2, 3] },
+      { key: 2, items: [4, 5, 6] }
+    ])
+    expect(collector({ keyName: 'foo', itemsName: 'bar' })).to.deep.equal([
+      { foo: 1, bar: [1, 2, 3] },
+      { foo: 2, bar: [4, 5, 6] }
+    ])
+  })
 })
