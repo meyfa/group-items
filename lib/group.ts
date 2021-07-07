@@ -1,33 +1,39 @@
 import deepEql from 'deep-eql'
 
-import { findOrCreate } from './util/find-or-create'
-
-import { ArraysCollection, asArrays } from './collectors/as-arrays'
-import { asEntries, EntriesCollection, EntriesCollectorOptions } from './collectors/as-entries'
-import { asMap, MapCollection } from './collectors/as-map'
-import { asObject, ObjectCollection } from './collectors/as-object'
-import { asTuples, TuplesCollection } from './collectors/as-tuples'
-import { keys, KeysCollection } from './collectors/keys'
 import { Grouping, GroupingEntry } from './types'
+import { findOrCreate } from './util/find-or-create'
+import { ArraysCollector, asArraysFactory } from './collectors/as-arrays'
+import { asEntriesFactory, EntriesCollector } from './collectors/as-entries'
+import { asMapFactory, MapCollector } from './collectors/as-map'
+import { asObjectFactory, ObjectCollector } from './collectors/as-object'
+import { asTuplesFactory, TuplesCollector } from './collectors/as-tuples'
+import { KeysCollector, keysFactory } from './collectors/keys'
 
 export type KeyingFunction<K, V> = (t: V) => K
 
-export type GroupingFunction<V> = <K = any> (key: string | KeyingFunction<K, V>) => K extends string | number | symbol ? ObjectCollectable<K, V> : Collectable<K, V>
+/**
+ * Group the items with the given key, which can be either a property name
+ * or a custom function.
+ *
+ * The argument of the keying function is the item. Its return value is used
+ * as the group key for that item.
+ *
+ * @param key The keying function or property name.
+ * @returns A collectable object.
+ */
+export type GroupingFunction<V> = <K = any> (key: string | KeyingFunction<K, V>) => Collectable<K, V>
 
 export interface Groupable<V> {
   readonly by: GroupingFunction<V>
 }
 
 export interface Collectable<K, V> {
-  readonly asArrays: () => ArraysCollection<V>
-  readonly asEntries: (options?: EntriesCollectorOptions) => EntriesCollection<K, V>
-  readonly asMap: () => MapCollection<K, V>
-  readonly asTuples: () => TuplesCollection<K, V>
-  readonly keys: () => KeysCollection<K>
-}
-
-export interface ObjectCollectable<K extends string | number | symbol, V> extends Collectable<K, V> {
-  readonly asObject: () => ObjectCollection<K, V>
+  readonly asArrays: ArraysCollector<V>
+  readonly asEntries: EntriesCollector<K, V>
+  readonly asObject: ObjectCollector<K, V>
+  readonly asMap: MapCollector<K, V>
+  readonly asTuples: TuplesCollector<K, V>
+  readonly keys: KeysCollector<K>
 }
 
 // UTILITY METHODS
@@ -71,16 +77,6 @@ export function group<V> (items: Iterable<V>): Groupable<V>
  * @returns A groupable object.
  */
 export function group<V> (items: Iterable<V>): Groupable<V> {
-  /**
-   * Group the items with the given key, which can be either a property name
-   * or a custom function.
-   *
-   * The argument of the keying function is the item. Its return value is used
-   * as the group key for that item.
-   *
-   * @param key The keying function or property name.
-   * @returns A collectable object.
-   */
   const by: GroupingFunction<V> = (key) => {
     // create grouping with resolved keying function
     const keyFn = typeof key === 'function' ? key : (item: V): any => (item as any)[key]
@@ -88,12 +84,12 @@ export function group<V> (items: Iterable<V>): Groupable<V> {
 
     // return collectors
     return Object.freeze({
-      asArrays: () => asArrays(groups),
-      asEntries: (options?) => asEntries(groups, options),
-      asMap: () => asMap(groups),
-      asObject: () => asObject(groups),
-      asTuples: () => asTuples(groups),
-      keys: () => keys(groups)
+      asArrays: asArraysFactory(groups),
+      asEntries: asEntriesFactory(groups),
+      asMap: asMapFactory(groups),
+      asObject: asObjectFactory(groups),
+      asTuples: asTuplesFactory(groups),
+      keys: keysFactory(groups)
     })
   }
 

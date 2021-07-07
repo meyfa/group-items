@@ -1,17 +1,19 @@
 import { expect } from 'chai'
 
-import { asArrays } from '../../lib/collectors/as-arrays'
+import { asArraysFactory } from '../../lib/collectors/as-arrays'
 
 describe('collectors/as-arrays.ts', function () {
   it('returns empty array for empty input', function () {
-    expect(asArrays([])).to.deep.equal([])
+    const collector = asArraysFactory([])
+    expect(collector()).to.deep.equal([])
   })
 
   it('returns array of item arrays', function () {
-    expect(asArrays([
+    const collector = asArraysFactory([
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
-    ])).to.deep.equal([
+    ])
+    expect(collector()).to.deep.equal([
       [1, 2, 3],
       [4, 5, 6]
     ])
