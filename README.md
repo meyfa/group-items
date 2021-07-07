@@ -4,8 +4,8 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5935873a1c2a7f1ac334/test_coverage)](https://codeclimate.com/github/meyfa/group-items/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5935873a1c2a7f1ac334/maintainability)](https://codeclimate.com/github/meyfa/group-items/maintainability)
 
-`group-items` is a NodeJS module for grouping arrays by some key, primitive or
-complex, and into whatever structure you desire.
+`group-items` is a TypeScript/JavaScript module for grouping arrays by some
+key, primitive or complex, and into whatever structure you desire.
 
 Example:
 
@@ -52,12 +52,17 @@ Because this method takes an `Iterable`, you can give it arrays, sets, strings,
 
 ### 2. Keying
 
-There are two ways of providing a keying: (A) by property name, or
-(B) by function. You've seen an example for (A) in the example above, where the
-`length` property was used to group strings. Examples for (B) can be found in
-the Examples section, but basically you would provide a function that, when
-given an element of the input `Iterable`, computes some value that can be used
-as the key for that element. Later I'll demonstrate the power of this concept.
+There are two ways of providing a keying:
+
+* (A) by property name, or
+* (B) by function.
+
+You've seen an example for (A) in the code snippet above, where the `length`
+property was used to group strings. Examples for (B) can be found at the end
+of this document (in the Examples section). Put simply, you would provide a
+function that -- when given an element of the input `Iterable` -- computes
+some value that can be used as the key for that element.
+Later I will demonstrate the power of this concept.
 
 Note that *almost anything* can be used as key. Key equality (and thereby
 grouping) is determined as per the

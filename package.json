@@ -2,12 +2,19 @@
   "name": "group-items",
   "version": "1.0.0",
   "description": "Group arrays by complex keys into polymorphic structures",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "test": "npm run clean && ts-mocha --recursive \"test/**/*.test.*\"",
     "lint": "eslint --ignore-path .gitignore .",
     "lint-fix": "eslint --fix --ignore-path .gitignore .",
-    "test": "mocha --recursive",
-    "coverage": "nyc --reporter=lcov mocha --recursive"
+    "coverage": "nyc --reporter=lcov npm test",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -32,15 +39,20 @@
   },
   "homepage": "https://github.com/meyfa/group-items",
   "devDependencies": {
+    "@types/chai": "^4.2.20",
+    "@types/mocha": "^8.2.3",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
     "chai": "^4.2.0",
     "eslint": "^7.30.0",
-    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-with-typescript": "^20.0.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsdoc": "^35.4.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^5.1.0",
     "mocha": "^8.4.0",
-    "nyc": "^15.0.0"
+    "nyc": "^15.0.0",
+    "ts-mocha": "^8.0.0",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
     "deep-eql": "^4.0.0"

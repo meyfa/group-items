@@ -1,10 +1,8 @@
-'use strict'
+import { expect } from 'chai'
 
-const { expect } = require('chai')
+import { asMap } from '../../lib/collectors/as-map'
 
-const asMap = require('../../lib/collectors/as-map.js')
-
-describe('collectors/as-map.js', function () {
+describe('collectors/as-map.ts', function () {
   it('returns empty Map for empty input', function () {
     expect(asMap([])).to.be.a('Map').with.lengthOf(0)
   })

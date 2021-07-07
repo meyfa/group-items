@@ -1,10 +1,8 @@
-'use strict'
+import { expect } from 'chai'
 
-const { expect } = require('chai')
+import { asEntries } from '../../lib/collectors/as-entries'
 
-const asEntries = require('../../lib/collectors/as-entries.js')
-
-describe('collectors/as-entries.js', function () {
+describe('collectors/as-entries.ts', function () {
   it('returns empty array for empty input', function () {
     expect(asEntries([])).to.deep.equal([])
   })
