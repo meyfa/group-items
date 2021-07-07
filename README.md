@@ -10,7 +10,7 @@ key, primitive or complex, and into whatever structure you desire.
 Example:
 
 ```js
-const group = require('group-items')
+import { group } from 'group-items'
 
 // group names by length
 const items = ['James', 'John', 'Robert', 'Michael', 'William', 'David']
@@ -35,6 +35,10 @@ generated and there are other collectors in addition to `.asObject()`.
 ## Usage
 
 ```js
+// TypeScript:
+import { group } from 'group-items'
+
+// JavaScript:
 const group = require('group-items')
 ```
 
@@ -99,10 +103,12 @@ as you would expect. Maps have the advantage of supporting non-primitive keys.
 `.asObject()`
 
 collects into a JavaScript `Object`. You can find an example for this above.
+Note that due to the nature of JavaScript objects, only values of type
+`string`, `number` or `symbol` will be included in the result.
 
 `.asTuples()`
 
-collects into an array of 2-tuples, i.e. an array of the following form:
+collects into an array of 2-tuples, i.e., an array of the following form:
 
 ```js
 [
