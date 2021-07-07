@@ -1,6 +1,6 @@
 {
   "name": "group-items",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Group arrays by complex keys into polymorphic structures",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
