@@ -94,6 +94,10 @@ Options:
 - `keyName`: name of the key property (default: `'key'`)
 - `itemsName`: name of the items property (default: `'items'`)
 
+_Note that due to how TypeScript works, the return type of this method cannot
+be inferred correctly when customizing property names. In those cases, an array
+of `Record` will be returned which you have to cast yourself._
+
 `.asMap()`
 
 collects into a JavaScript
