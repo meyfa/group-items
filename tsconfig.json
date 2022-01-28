@@ -5,7 +5,11 @@
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "typeRoots" : [
+      "./node_modules/@types",
+      "./typings"
+    ]
   },
   "exclude": [
     "test",
