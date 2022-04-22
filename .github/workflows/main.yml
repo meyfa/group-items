@@ -10,15 +10,12 @@ jobs:
   lint:
     name: Linting
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 16
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
+          cache: npm
       - run: npm ci
       - run: npm run lint
 
@@ -28,6 +25,7 @@ jobs:
     strategy:
       matrix:
         node-version:
+          - 18
           - 16
           - 14
           - 12
@@ -36,18 +34,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: npm
       - run: npm ci
       - run: npm test
 
   coverage:
-    needs: [ test ]
     name: Coverage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
+          cache: npm
       - run: npm ci
       - uses: paambaati/codeclimate-action@v3.0.0
         env:
