@@ -116,9 +116,9 @@ collects into an array of 2-tuples, i.e., an array of the following form:
 
 ```js
 [
-    [keyA, [itemA_0, itemA_1, itemA_2, /* etc ... */]],
-    [keyB, [itemB_0, itemB_1, itemB_2, /* etc ... */]],
-    // etc ...
+  [keyA, [itemA_0, itemA_1, itemA_2, /* etc ... */]],
+  [keyB, [itemB_0, itemB_1, itemB_2, /* etc ... */]],
+  // etc ...
 ]
 ```
 
@@ -142,9 +142,9 @@ group([0, 1, 2, 3, 4, 5])
 
 ```js
 {
-    0: [0, 3],
-    1: [1, 4],
-    2: [2, 5]
+  0: [0, 3],
+  1: [1, 4],
+  2: [2, 5]
 }
 ```
 
@@ -152,11 +152,11 @@ group([0, 1, 2, 3, 4, 5])
 
 ```js
 const events = [
-    { date: [2020, 3,  1], title: 'EDC Mexico' },
-    { date: [2020, 3, 21], title: 'Ultra Music Festival (ASOT)' },
-    { date: [2020, 3, 21], title: 'This Is Me' },
-    { date: [2020, 3, 29], title: 'Creamfields' },
-    //...
+  { date: [2020, 3,  1], title: 'EDC Mexico' },
+  { date: [2020, 3, 21], title: 'Ultra Music Festival (ASOT)' },
+  { date: [2020, 3, 21], title: 'This Is Me' },
+  { date: [2020, 3, 29], title: 'Creamfields' },
+  //...
 ]
 
 group(events).by('date').asMap()
@@ -164,12 +164,12 @@ group(events).by('date').asMap()
 
 ```js
 Map {
-    [2020, 3, 1] => [ { date: [2020, 3, 1], title: 'EDC Mexico' } ],
-    [2020, 3, 21] => [
-        { date: [2020, 3, 21], title: 'Ultra Music Festival (ASOT)' },
-        { date: [2020, 3, 21], title: 'This Is Me' }
-    ],
-    [2020, 3, 29] => [ { date: [2020, 3, 29], title: 'Creamfields' } ]
+  [2020, 3, 1] => [ { date: [2020, 3, 1], title: 'EDC Mexico' } ],
+  [2020, 3, 21] => [
+    { date: [2020, 3, 21], title: 'Ultra Music Festival (ASOT)' },
+    { date: [2020, 3, 21], title: 'This Is Me' }
+  ],
+  [2020, 3, 29] => [ { date: [2020, 3, 29], title: 'Creamfields' } ]
 }
 ```
 
@@ -181,9 +181,9 @@ group(events).by('date').asEntries({ keyName: 'date', itemsName: 'events' })
 
 ```js
 [
-    { date: [2020, 3, 1], events: [ /* ... */ ] },
-    { date: [2020, 3, 21], events: [ /* ... */ ] },
-    { date: [2020, 3, 29], events: [ /* ... */ ] }
+  { date: [2020, 3, 1], events: [ /* ... */ ] },
+  { date: [2020, 3, 21], events: [ /* ... */ ] },
+  { date: [2020, 3, 29], events: [ /* ... */ ] }
 ]
 ```
 
@@ -195,7 +195,7 @@ the idea.
 ```js
 // initialize some mappings
 const map = new Map([
-    [0, 'foo'], [2, 'foo'], [3, 'bar'], [8, 'foo'], [9, 'qux'], [11, 'bar']
+  [0, 'foo'], [2, 'foo'], [3, 'bar'], [8, 'foo'], [9, 'qux'], [11, 'bar']
 ])
 
 // create a reverse map (map each value to its respective keys)

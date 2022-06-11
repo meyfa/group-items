@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import { group } from '../lib/group'
+import { group } from '../src/group'
 
 describe('group.ts', function () {
   it("has function property 'by'", function () {

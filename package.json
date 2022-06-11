@@ -11,8 +11,8 @@
     "clean": "rimraf dist",
     "build": "npm run clean && tsc",
     "test": "mocha --require ts-node/register --recursive \"test/**/*.test.*\"",
-    "lint": "eslint --ignore-path .gitignore . && tsc --noEmit",
-    "lint-fix": "eslint --fix --ignore-path .gitignore . && tsc --noEmit",
+    "lint": "tsc --noEmit && eslint --ignore-path .gitignore .",
+    "lint-fix": "tsc --noEmit && eslint --fix --ignore-path .gitignore .",
     "coverage": "nyc --reporter=lcov npm test",
     "prepare": "npm run build"
   },

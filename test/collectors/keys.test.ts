@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import { keysFactory } from '../../lib/collectors/keys'
+import { keysFactory } from '../../src/collectors/keys'
 
 describe('collectors/keys.ts', function () {
   it('returns empty array for empty input', function () {
