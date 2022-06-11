@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import { asMapFactory } from '../../lib/collectors/as-map'
+import { asMapFactory } from '../../src/collectors/as-map'
 
 describe('collectors/as-map.ts', function () {
   it('returns empty Map for empty input', function () {

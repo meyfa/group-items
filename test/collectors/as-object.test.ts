@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 
-import { asObjectFactory } from '../../lib/collectors/as-object'
-import { Grouping } from '../../lib/types.js'
+import { asObjectFactory } from '../../src/collectors/as-object'
+import { Grouping } from '../../src/types.js'
 
 describe('collectors/as-object.ts', function () {
   it('returns empty object for empty input', function () {

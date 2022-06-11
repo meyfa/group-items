@@ -13,3 +13,12 @@ rules:
   'jsdoc/require-param-type': off
   'jsdoc/require-returns-type': off
   'jsdoc/no-types': error
+
+overrides:
+  - files: 'test/**/*'
+    env:
+      mocha: true
+    rules:
+      no-unused-expressions: off
+      '@typescript-eslint/no-unused-expressions': off
+      '@typescript-eslint/no-floating-promises': off

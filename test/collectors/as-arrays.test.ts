@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import { asArraysFactory } from '../../lib/collectors/as-arrays'
+import { asArraysFactory } from '../../src/collectors/as-arrays'
 
 describe('collectors/as-arrays.ts', function () {
   it('returns empty array for empty input', function () {

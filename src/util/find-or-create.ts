@@ -3,7 +3,7 @@
  * default entry and push it into the array. In either case, the entry will be
  * returned.
  *
- * The predicate receives one parameters: the entry.
+ * The predicate receives one parameter: the entry.
  *
  * THIS MODIFIES THE ARRAY.
  *

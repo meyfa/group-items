@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import { findOrCreate } from '../../lib/util/find-or-create'
+import { findOrCreate } from '../../src/util/find-or-create'
 
 describe('util/find-or-create.ts', function () {
   describe('match', function () {
