@@ -1,4 +1,4 @@
-import { Grouping } from '../types'
+import { Grouping } from '../types.js'
 
 /**
  * Determine whether the given key can be used to specify an object property. This is true if, and only if,

@@ -1,4 +1,4 @@
-import { Grouping, GroupingEntry } from '../types'
+import { Grouping, GroupingEntry } from '../types.js'
 
 export interface EntriesCollectorOptions {
   keyName?: string

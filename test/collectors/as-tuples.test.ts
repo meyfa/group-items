@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import { asTuplesFactory } from '../../src/collectors/as-tuples'
+import { asTuplesFactory } from '../../src/collectors/as-tuples.js'
 
 describe('collectors/as-tuples.ts', function () {
   it('returns empty array for empty input', function () {

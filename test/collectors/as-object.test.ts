@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 
-import { asObjectFactory } from '../../src/collectors/as-object'
+import { asObjectFactory } from '../../src/collectors/as-object.js'
 import { Grouping } from '../../src/types.js'
 
 describe('collectors/as-object.ts', function () {
