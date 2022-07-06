@@ -51,7 +51,7 @@
     "eslint-config-standard-with-typescript": "22.0.0",
     "eslint-plugin-jsdoc": "39.3.3",
     "mocha": "10.0.0",
-    "ts-node": "10.8.1",
+    "ts-node": "10.8.2",
     "typescript": "4.7.4"
   },
   "dependencies": {
