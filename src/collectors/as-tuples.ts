@@ -1,4 +1,4 @@
-import { Grouping } from '../types'
+import { Grouping } from '../types.js'
 
 export type TuplesCollection<K, V> = Array<[K, V[]]>
 
