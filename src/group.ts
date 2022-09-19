@@ -9,7 +9,7 @@ import { asObjectFactory, ObjectCollector } from './collectors/as-object.js'
 import { asTuplesFactory, TuplesCollector } from './collectors/as-tuples.js'
 import { KeysCollector, keysFactory } from './collectors/keys.js'
 
-export type KeyingFunction<K, V> = (t: V) => K
+export type KeyingFunction<K, V> = (t: V, idx: number) => K
 
 /**
  * Group the items with the given key, which can be either a property name
@@ -54,8 +54,10 @@ export interface Collectable<K, V> {
  */
 function createGrouping<K, V> (items: Iterable<V>, keyFn: KeyingFunction<K, V>): Grouping<K, V> {
   const groups: Grouping<K, V> = []
+  let idx = 0
   for (const item of items) {
-    const itemKey = keyFn(item)
+    const itemKey = keyFn(item, idx)
+    idx++
 
     const predicate = (g: GroupingEntry<K, V>): boolean => deepEql(g.key, itemKey)
     const construct = (): GroupingEntry<K, V> => ({ key: itemKey, items: [] })
