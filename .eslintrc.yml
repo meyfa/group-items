@@ -3,7 +3,7 @@ extends:
   - 'plugin:jsdoc/recommended'
 
 parserOptions:
-  project: './tsconfig.eslint.json'
+  project: './tsconfig.lint.json'
 
 rules:
   'jsdoc/require-param-type': off
