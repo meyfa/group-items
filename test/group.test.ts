@@ -16,8 +16,8 @@ describe('group.ts', function () {
       expect(v).to.equal(idx)
       return idx % 2
     }).asEntries()).to.deep.equal([
-      { key: 0, items: [0, 2, 4]},
-      { key: 1, items: [1, 3, 5]}
+      { key: 0, items: [0, 2, 4] },
+      { key: 1, items: [1, 3, 5] }
     ])
   })
 
