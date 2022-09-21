@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/meyfa/group-items/compare/v2.1.0...v2.2.0) (2022-09-21)
+
+
+### Features
+
+* support index in group().by ([#80](https://github.com/meyfa/group-items/issues/80)) ([26b9d29](https://github.com/meyfa/group-items/commit/26b9d29358e7c494757cbdd345eded179677291e))
+
+
+### Bug Fixes
+
+* Use file extensions on imports ([#64](https://github.com/meyfa/group-items/issues/64)) ([121aec4](https://github.com/meyfa/group-items/commit/121aec4c53c4111550339cc001893077519bdc1b))
+
 ## [2.1.0](https://github.com/meyfa/group-items/compare/v2.0.0...v2.1.0) (2022-02-13)
 
 ### What's Changed
