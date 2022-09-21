@@ -45,7 +45,7 @@ const group = require('group-items')
 The basic workflow is as follows:
 
 1. Start a grouping: `group(Iterable)`
-2. Provide a keying: `.by('property')` or `.by(item => fn(item))`
+2. Provide a keying: `.by('property')` or `.by((item, index) => fn(item, index))`
 3. Collect the results: `.asObject()`, `.asTuples()`, `.keys()`, etc.
 
 ### 1. Group creation
