@@ -35,11 +35,11 @@ generated and there are other collectors in addition to `.asObject()`.
 ## Usage
 
 ```js
-// TypeScript:
+// ESM / TypeScript:
 import { group } from 'group-items'
 
-// JavaScript:
-const group = require('group-items')
+// CommonJS:
+const { group } = require('group-items')
 ```
 
 The basic workflow is as follows:
@@ -94,9 +94,10 @@ Options:
 - `keyName`: name of the key property (default: `'key'`)
 - `itemsName`: name of the items property (default: `'items'`)
 
-_Note that due to how TypeScript works, the return type of this method cannot
-be inferred correctly when customizing property names. In those cases, an array
-of `Record` will be returned which you have to cast yourself._
+_Note that due to limitations of the TypeScript language, the return type of
+this method cannot be inferred correctly when customizing property names. In
+those cases, an array of `Record` will be returned which you have to cast
+yourself._
 
 `.asMap()`
 
@@ -136,8 +137,8 @@ capabilities.
 
 ```js
 group([0, 1, 2, 3, 4, 5])
-    .by(i => i % 3)
-    .asObject()
+  .by(i => i % 3)
+  .asObject()
 ```
 
 ```js
@@ -204,4 +205,21 @@ group(map).by(entry => entry[1]).keys()
 
 ```js
 ['foo', 'bar', 'qux']
+```
+
+### Alternated string chunking
+
+The following example makes use of the element index for grouping.
+
+```js
+group('ax1by2cz3')
+  // create chunks by alternating every 3rd character
+  .by((char, index) => index % 3)
+  .asArrays()
+  // now join the inner arrays
+  .map((arr) => arr.join(''))
+```
+
+```js
+['abc', 'xyz', '123']
 ```
