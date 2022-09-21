@@ -11,6 +11,16 @@ describe('group.ts', function () {
     expect(group([]).by((a) => a).asEntries()).to.be.an('array').with.lengthOf(0)
   })
 
+  it('correctly groups primitives by index % 2', function () {
+    expect(group([0, 1, 2, 3, 4, 5]).by((v, idx) => {
+      expect(v).to.equal(idx)
+      return idx % 2
+    }).asEntries()).to.deep.equal([
+      { key: 0, items: [0, 2, 4] },
+      { key: 1, items: [1, 3, 5] }
+    ])
+  })
+
   it('correctly groups primitives with identity', function () {
     expect(group([1, 2, 3]).by((i) => i).asEntries()).to.deep.equal([
       { key: 1, items: [1] },
