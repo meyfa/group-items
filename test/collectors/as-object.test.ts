@@ -5,15 +5,15 @@ import { Grouping } from '../../src/types.js'
 
 describe('collectors/as-object.ts', function () {
   it('returns empty object for empty input', function () {
-    const collector = asObjectFactory([])
+    const collector = asObjectFactory(new Map())
     expect(collector()).to.deep.equal({})
   })
 
   it('returns mapping between key and array of items', function () {
-    const collector = asObjectFactory([
-      { key: 1, items: [1, 2, 3] },
-      { key: 2, items: [4, 5, 6] }
-    ])
+    const collector = asObjectFactory(new Map()
+      .set(1, { key: 1, items: [1, 2, 3] })
+      .set(2, { key: 2, items: [4, 5, 6] })
+    )
     expect(collector()).to.deep.equal({
       1: [1, 2, 3],
       2: [4, 5, 6]
@@ -21,10 +21,10 @@ describe('collectors/as-object.ts', function () {
   })
 
   it('returns mapping for key typed as string union', function () {
-    const groups: Grouping<'foo' | 'bar', number> = [
-      { key: 'foo', items: [1, 2, 3] },
-      { key: 'bar', items: [4, 5, 6] }
-    ]
+    const groups: Grouping<'foo' | 'bar', number> = new Map()
+      .set('foo', { key: 'foo', items: [1, 2, 3] })
+      .set('bar', { key: 'bar', items: [4, 5, 6] })
+
     const collector = asObjectFactory(groups)
     // type the result explicitly to assert its correctness
     const result: Record<'foo' | 'bar', number[]> = collector()
@@ -35,11 +35,10 @@ describe('collectors/as-object.ts', function () {
   })
 
   it('excludes keys that cannot be object properties due to their type', function () {
-    const groups: Grouping<string | boolean | number, number> = [
-      { key: 'foo', items: [1, 2, 3] },
-      { key: false, items: [4, 5, 6] },
-      { key: 42, items: [8, 9, 0] }
-    ]
+    const groups: Grouping<string | boolean | number, number> = new Map()
+      .set('foo', { key: 'foo', items: [1, 2, 3] })
+      .set(false, { key: false, items: [4, 5, 6] })
+      .set(42, { key: 42, items: [8, 9, 0] })
     const collector = asObjectFactory(groups)
     // type the result explicitly to assert its correctness
     const result: Record<string | number, number[]> = collector()

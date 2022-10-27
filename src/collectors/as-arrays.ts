@@ -17,6 +17,8 @@ export type ArraysCollector<V> = () => ArraysCollection<V>
  */
 export function asArraysFactory<K, V> (groups: Grouping<K, V>): ArraysCollector<V> {
   return () => {
-    return groups.map((g) => g.items)
+    const result: V[][] = []
+    groups.forEach((g) => result.push(g.items))
+    return result
   }
 }

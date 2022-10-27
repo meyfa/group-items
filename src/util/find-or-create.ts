@@ -7,17 +7,18 @@
  *
  * THIS MODIFIES THE ARRAY.
  *
- * @param arr The array to search.
+ * @param arr The map to search.
  * @param predicate The search condition.
  * @param construct The creator function.
  * @returns The entry that was found, or created.
  */
-export function findOrCreate<T> (arr: T[], predicate: (t: T) => boolean, construct: () => T): T {
-  const index = arr.findIndex((entry) => predicate(entry))
-  if (index >= 0) {
-    return arr[index]
+export function findOrCreate<K, V> (arr: Map<K, V>, predicate: K, construct: () => V): V {
+  const value = arr.has(predicate)
+  if (value) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    return arr.get(predicate)!
   }
   const newEntry = construct()
-  arr.push(newEntry)
+  arr.set(predicate, newEntry)
   return newEntry
 }

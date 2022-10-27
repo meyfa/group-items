@@ -1,5 +1,3 @@
-import deepEql from 'deep-eql'
-
 import { Grouping, GroupingEntry } from './types.js'
 import { findOrCreate } from './util/find-or-create.js'
 import { ArraysCollector, asArraysFactory } from './collectors/as-arrays.js'
@@ -53,15 +51,14 @@ export interface Collectable<K, V> {
  * @returns Array of groups.
  */
 function createGrouping<K, V> (items: Iterable<V>, keyFn: KeyingFunction<K, V>): Grouping<K, V> {
-  const groups: Grouping<K, V> = []
+  const groups: Grouping<K, V> = new Map()
   let idx = 0
   for (const item of items) {
     const itemKey = keyFn(item, idx)
     idx++
 
-    const predicate = (g: GroupingEntry<K, V>): boolean => deepEql(g.key, itemKey)
     const construct = (): GroupingEntry<K, V> => ({ key: itemKey, items: [] })
-    findOrCreate(groups, predicate, construct).items.push(item)
+    findOrCreate(groups, itemKey, construct).items.push(item)
   }
   return groups
 }

@@ -17,6 +17,8 @@ export type TuplesCollector<K, V> = () => TuplesCollection<K, V>
  */
 export function asTuplesFactory<K, V> (groups: Grouping<K, V>): TuplesCollector<K, V> {
   return () => {
-    return groups.map((g) => [g.key, g.items])
+    const result: Array<[key: K, items: V[]]> = []
+    groups.forEach((g) => result.push([g.key, g.items]))
+    return result
   }
 }

@@ -31,8 +31,8 @@ export function asObjectFactory<K, V> (groups: Grouping<K, V>): ObjectCollector<
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     const obj = {} as ObjectCollection<Extract<K, keyof any>, V>
     for (const group of groups) {
-      if (isObjectAssignable(group.key)) {
-        obj[group.key] = group.items
+      if (isObjectAssignable(group[1].key)) {
+        obj[group[1].key] = group[1].items
       }
     }
     return obj

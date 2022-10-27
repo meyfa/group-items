@@ -1,5 +1,4 @@
-import { Grouping, GroupingEntry } from '../types.js'
-
+import { Grouping } from '../types.js'
 export interface EntriesCollectorOptions {
   keyName?: string
   itemsName?: string
@@ -41,9 +40,15 @@ export function asEntriesFactory<K, V> (groups: Grouping<K, V>): EntriesCollecto
     const keyName: string = options?.keyName ?? 'key'
     const itemsName: string = options?.itemsName ?? 'items'
 
-    return groups.map((g: GroupingEntry<K, V>) => ({
+    const result: Array<{
+      [x: string]: K | V[]
+    }> = []
+
+    groups.forEach((g) => result.push({
       [keyName]: g.key,
       [itemsName]: g.items
     }))
+
+    return result
   }) as EntriesCollector<K, V>
 }

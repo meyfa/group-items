@@ -17,6 +17,6 @@ export type KeysCollector<K> = () => KeysCollection<K>
  */
 export function keysFactory<K, V> (groups: Grouping<K, V>): KeysCollector<K> {
   return () => {
-    return groups.map((g) => g.key)
+    return Array.from(groups.keys())
   }
 }

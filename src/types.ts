@@ -3,4 +3,4 @@ export interface GroupingEntry<K, V> {
   items: V[]
 }
 
-export type Grouping<K, V> = Array<GroupingEntry<K, V>>
+export type Grouping<K, V> = Map<K, GroupingEntry<K, V>>

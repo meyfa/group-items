@@ -52,7 +52,7 @@ describe('group.ts', function () {
     ])
   })
 
-  it('correctly groups objects by identity', function () {
+  it.only('correctly groups objects by identity', function () {
     const obj0 = { a: 1 }
     const obj1 = { a: 1 }
     const obj2 = { a: 2 }

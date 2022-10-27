@@ -19,7 +19,7 @@ export function asMapFactory<K, V> (groups: Grouping<K, V>): MapCollector<K, V> 
   return () => {
     const map = new Map()
     for (const group of groups) {
-      map.set(group.key, group.items)
+      map.set(group[1].key, group[1].items)
     }
     return map
   }
