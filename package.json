@@ -14,7 +14,9 @@
     "lint": "tsc --noEmit -p tsconfig.lint.json && eslint --ignore-path .gitignore .",
     "lint-fix": "tsc --noEmit -p tsconfig.lint.json && eslint --fix --ignore-path .gitignore .",
     "coverage": "c8 --all --src=src --reporter=text --reporter=lcov npm test",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "benchmark": "node benchmark/index.js",
+    "benchmark-compare": "node scripts/benchmark-compare.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +44,8 @@
     "npm": ">=7"
   },
   "devDependencies": {
+    "@faker-js/faker": "7.6.0",
+    "@jsperf.dev/benchmark": "0.3.2",
     "@meyfa/eslint-config": "3.0.0",
     "@types/mocha": "10.0.1",
     "@types/node": "18.15.10",

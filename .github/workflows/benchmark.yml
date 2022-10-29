@@ -1,0 +1,53 @@
+name: Benchmark
+
+on:
+  pull_request:
+
+jobs:
+  benchmark:
+    name: PR/main performance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run benchmark on PR
+        id: bench_pr
+        run: |
+          OUTPUT=$(npm run benchmark 2>&1 | tee /dev/tty)
+          DELIMITER=$(echo "EOF-$RANDOM")
+          echo "BENCHMARK_LOG<<$DELIMITER" >> $GITHUB_OUTPUT
+          echo "$OUTPUT" >> $GITHUB_OUTPUT
+          echo "$DELIMITER" >> $GITHUB_OUTPUT
+
+      - name: Checkout main
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run benchmark on main
+        id: bench_main
+        run: |
+          OUTPUT=$(npm run benchmark 2>&1 | tee /dev/tty)
+          DELIMITER=$(echo "EOF-$RANDOM")
+          echo "BENCHMARK_LOG<<$DELIMITER" >> $GITHUB_OUTPUT
+          echo "$OUTPUT" >> $GITHUB_OUTPUT
+          echo "$DELIMITER" >> $GITHUB_OUTPUT
+
+      - name: Compare results
+        env:
+          BENCH_PR: "${{ steps.bench_pr.outputs.BENCHMARK_LOG }}"
+          BENCH_MAIN: "${{ steps.bench_main.outputs.BENCHMARK_LOG }}"
+        run: npm run benchmark-compare
