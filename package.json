@@ -42,7 +42,7 @@
     "npm": ">=7"
   },
   "devDependencies": {
-    "@meyfa/eslint-config": "2.1.2",
+    "@meyfa/eslint-config": "3.0.0",
     "@types/chai": "4.3.3",
     "@types/mocha": "10.0.0",
     "c8": "7.12.0",
