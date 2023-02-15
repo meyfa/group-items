@@ -1,11 +1,10 @@
-import { expect } from 'chai'
-
+import assert from 'assert'
 import { asTuplesFactory } from '../../src/collectors/as-tuples.js'
 
 describe('collectors/as-tuples.ts', function () {
   it('returns empty array for empty input', function () {
     const collector = asTuplesFactory([])
-    expect(collector()).to.deep.equal([])
+    assert.deepStrictEqual(collector(), [])
   })
 
   it('returns array of [key, items] tuples', function () {
@@ -13,7 +12,7 @@ describe('collectors/as-tuples.ts', function () {
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
-    expect(collector()).to.deep.equal([
+    assert.deepStrictEqual(collector(), [
       [1, [1, 2, 3]],
       [2, [4, 5, 6]]
     ])

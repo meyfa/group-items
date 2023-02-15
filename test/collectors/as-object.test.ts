@@ -1,12 +1,11 @@
-import { expect } from 'chai'
-
+import assert from 'assert'
 import { asObjectFactory } from '../../src/collectors/as-object.js'
 import { Grouping } from '../../src/types.js'
 
 describe('collectors/as-object.ts', function () {
   it('returns empty object for empty input', function () {
     const collector = asObjectFactory([])
-    expect(collector()).to.deep.equal({})
+    assert.deepStrictEqual(collector(), {})
   })
 
   it('returns mapping between key and array of items', function () {
@@ -14,7 +13,7 @@ describe('collectors/as-object.ts', function () {
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
-    expect(collector()).to.deep.equal({
+    assert.deepStrictEqual(collector(), {
       1: [1, 2, 3],
       2: [4, 5, 6]
     })
@@ -28,7 +27,7 @@ describe('collectors/as-object.ts', function () {
     const collector = asObjectFactory(groups)
     // type the result explicitly to assert its correctness
     const result: Record<'foo' | 'bar', number[]> = collector()
-    expect(result).to.deep.equal({
+    assert.deepStrictEqual(result, {
       foo: [1, 2, 3],
       bar: [4, 5, 6]
     })
@@ -43,7 +42,7 @@ describe('collectors/as-object.ts', function () {
     const collector = asObjectFactory(groups)
     // type the result explicitly to assert its correctness
     const result: Record<string | number, number[]> = collector()
-    expect(result).to.deep.equal({
+    assert.deepStrictEqual(result, {
       foo: [1, 2, 3],
       42: [8, 9, 0]
     })
