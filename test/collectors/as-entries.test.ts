@@ -1,11 +1,10 @@
-import { expect } from 'chai'
-
+import assert from 'assert'
 import { asEntriesFactory } from '../../src/collectors/as-entries.js'
 
 describe('collectors/as-entries.ts', function () {
   it('returns empty array for empty input', function () {
     const collector = asEntriesFactory([])
-    expect(collector()).to.deep.equal([])
+    assert.deepStrictEqual(collector(), [])
   })
 
   it('returns array of entries', function () {
@@ -13,7 +12,7 @@ describe('collectors/as-entries.ts', function () {
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
-    expect(collector()).to.deep.equal([
+    assert.deepStrictEqual(collector(), [
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
@@ -24,7 +23,7 @@ describe('collectors/as-entries.ts', function () {
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
-    expect(collector({})).to.deep.equal([
+    assert.deepStrictEqual(collector({}), [
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
@@ -35,7 +34,7 @@ describe('collectors/as-entries.ts', function () {
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
-    expect(collector({ keyName: 'foo' })).to.deep.equal([
+    assert.deepStrictEqual(collector({ keyName: 'foo' }), [
       { foo: 1, items: [1, 2, 3] },
       { foo: 2, items: [4, 5, 6] }
     ])
@@ -46,7 +45,7 @@ describe('collectors/as-entries.ts', function () {
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
-    expect(collector({ itemsName: 'bar' })).to.deep.equal([
+    assert.deepStrictEqual(collector({ itemsName: 'bar' }), [
       { key: 1, bar: [1, 2, 3] },
       { key: 2, bar: [4, 5, 6] }
     ])
@@ -57,7 +56,7 @@ describe('collectors/as-entries.ts', function () {
       { key: 1, items: [1, 2, 3] },
       { key: 2, items: [4, 5, 6] }
     ])
-    expect(collector({ keyName: 'foo', itemsName: 'bar' })).to.deep.equal([
+    assert.deepStrictEqual(collector({ keyName: 'foo', itemsName: 'bar' }), [
       { foo: 1, bar: [1, 2, 3] },
       { foo: 2, bar: [4, 5, 6] }
     ])
