@@ -3,6 +3,7 @@
   "include": [
     "src",
     "typings",
-    "test"
+    "test",
+    "benchmark"
   ]
 }
