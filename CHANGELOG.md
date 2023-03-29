@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/meyfa/group-items/compare/v2.2.0...v2.2.1) (2023-03-29)
+
+
+### Bug Fixes
+
+* Speed up group creation by using hash buckets ([#123](https://github.com/meyfa/group-items/issues/123)) ([1f99c08](https://github.com/meyfa/group-items/commit/1f99c08d4f207c3949b98efcd449214b394b4b85))
+
 ## [2.2.0](https://github.com/meyfa/group-items/compare/v2.1.0...v2.2.0) (2022-09-21)
 
 
