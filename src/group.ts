@@ -1,7 +1,6 @@
 import deepEql from 'deep-eql'
 
-import { Grouping, GroupingEntry } from './types.js'
-import { findOrCreate } from './util/find-or-create.js'
+import { Grouping } from './types.js'
 import { ArraysCollector, asArraysFactory } from './collectors/as-arrays.js'
 import { asEntriesFactory, EntriesCollector } from './collectors/as-entries.js'
 import { asMapFactory, MapCollector } from './collectors/as-map.js'
@@ -54,15 +53,41 @@ export interface Collectable<K, V> {
  */
 function createGrouping<K, V> (items: Iterable<V>, keyFn: KeyingFunction<K, V>): Grouping<K, V> {
   const groups: Grouping<K, V> = []
+
+  // Optimization to allow constant-time lookup of groups by key. Note: May become linear in case of many collisions.
+  const groupsByKeyHash = new Map<any, Grouping<K, V>>()
+
   let idx = 0
   for (const item of items) {
     const itemKey = keyFn(item, idx)
     idx++
 
-    const predicate = (g: GroupingEntry<K, V>): boolean => deepEql(g.key, itemKey)
-    const construct = (): GroupingEntry<K, V> => ({ key: itemKey, items: [] })
-    findOrCreate(groups, predicate, construct).items.push(item)
+    // Get the array of groups with identical key hash ("same-hash groups").
+    const itemKeyHash = typeof itemKey === 'object' ? JSON.stringify(itemKey) : itemKey
+    let sameHashGroups = groupsByKeyHash.get(itemKeyHash)
+    if (sameHashGroups == null) {
+      sameHashGroups = []
+      groupsByKeyHash.set(itemKeyHash, sameHashGroups)
+    }
+
+    // Compare the key of each same-hash group.
+    let found = false
+    for (const group of sameHashGroups) {
+      if (deepEql(group.key, itemKey)) {
+        group.items.push(item)
+        found = true
+        break
+      }
+    }
+
+    // If no result was found, create a new group.
+    if (!found) {
+      const group = { key: itemKey, items: [item] }
+      groups.push(group)
+      sameHashGroups.push(group)
+    }
   }
+
   return groups
 }
 
