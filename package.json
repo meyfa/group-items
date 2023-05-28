@@ -43,7 +43,7 @@
     "npm": ">=7"
   },
   "devDependencies": {
-    "@faker-js/faker": "7.6.0",
+    "@faker-js/faker": "8.0.2",
     "@meyfa/eslint-config": "3.0.1",
     "@types/mocha": "10.0.1",
     "@types/node": "18.15.10",
