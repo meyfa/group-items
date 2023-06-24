@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/meyfa/group-items/compare/v2.2.1...v3.0.0) (2023-06-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drop support for Node.js older than v18.16.1 ([#143](https://github.com/meyfa/group-items/issues/143))
+
+### Miscellaneous Chores
+
+* Drop support for Node.js older than v18.16.1 ([#143](https://github.com/meyfa/group-items/issues/143)) ([bf62344](https://github.com/meyfa/group-items/commit/bf6234480ab9249606f336a0e5236358d7900bd4))
+
 ## [2.2.1](https://github.com/meyfa/group-items/compare/v2.2.0...v2.2.1) (2023-03-29)
 
 
