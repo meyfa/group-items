@@ -8,8 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "npm run clean && tsc",
+    "build": "node -e \"fs.rmSync('./dist',{force:true,recursive:true})\" && tsc",
     "test": "mocha --require ts-node/register --recursive \"test/**/*.test.*\"",
     "lint": "tsc --noEmit -p tsconfig.lint.json && eslint --ignore-path .gitignore .",
     "lint-fix": "tsc --noEmit -p tsconfig.lint.json && eslint --fix --ignore-path .gitignore .",
