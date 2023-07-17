@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/meyfa/group-items/compare/v3.0.0...v3.0.1) (2023-07-17)
+
+
+### Bug Fixes
+
+* Export types with "export type" for clarity ([#153](https://github.com/meyfa/group-items/issues/153)) ([754a067](https://github.com/meyfa/group-items/commit/754a067625b09ec398876ff89458179bf4008ae6))
+
 ## [3.0.0](https://github.com/meyfa/group-items/compare/v2.2.1...v3.0.0) (2023-06-24)
 
 
