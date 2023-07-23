@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.3](https://github.com/meyfa/group-items/compare/v3.0.2...v3.0.3) (2023-07-23)
+
+
+### Miscellaneous Chores
+
+* Fix release CI for publishing provenance ([#157](https://github.com/meyfa/group-items/issues/157)) ([757010d](https://github.com/meyfa/group-items/commit/757010d4f2323da38afb27329a172c11cae5c351))
+
 ## [3.0.2](https://github.com/meyfa/group-items/compare/v3.0.1...v3.0.2) (2023-07-23)
 
 
