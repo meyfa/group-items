@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import { asEntriesFactory } from '../../src/collectors/as-entries.js'
 
 describe('collectors/as-entries.ts', function () {

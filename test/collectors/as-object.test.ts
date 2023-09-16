@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import { asObjectFactory } from '../../src/collectors/as-object.js'
 import { Grouping } from '../../src/types.js'
 

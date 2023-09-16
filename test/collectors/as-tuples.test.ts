@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import { asTuplesFactory } from '../../src/collectors/as-tuples.js'
 
 describe('collectors/as-tuples.ts', function () {

@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import { asArraysFactory } from '../../src/collectors/as-arrays.js'
 
 describe('collectors/as-arrays.ts', function () {
