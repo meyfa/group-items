@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import { asMapFactory } from '../../src/collectors/as-map.js'
 
 describe('collectors/as-map.ts', function () {

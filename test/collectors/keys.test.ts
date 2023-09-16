@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import { keysFactory } from '../../src/collectors/keys.js'
 
 describe('collectors/keys.ts', function () {

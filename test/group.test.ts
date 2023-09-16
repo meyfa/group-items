@@ -1,4 +1,4 @@
-import assert from 'assert'
+import assert from 'node:assert'
 import { group } from '../src/group.js'
 
 describe('group.ts', function () {
