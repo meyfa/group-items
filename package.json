@@ -42,7 +42,7 @@
     "node": ">=18.16.1"
   },
   "devDependencies": {
-    "@faker-js/faker": "8.0.2",
+    "@faker-js/faker": "8.1.0",
     "@meyfa/eslint-config": "5.0.0",
     "@types/mocha": "10.0.1",
     "@types/node": "18.18.0",
