@@ -55,6 +55,6 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "deep-eql": "^4.0.0"
+    "deep-eql": "^5.0.0"
   }
 }
