@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.0.0](https://github.com/meyfa/group-items/compare/v3.0.3...v4.0.0) (2023-10-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* Convert group-items to ESM, dropping CommonJS support ([#181](https://github.com/meyfa/group-items/issues/181))
+
+### Features
+
+* Convert group-items to ESM, dropping CommonJS support ([#181](https://github.com/meyfa/group-items/issues/181)) ([3ac1998](https://github.com/meyfa/group-items/commit/3ac1998a9f3ad73cf5df0b03e0110829e97876ba))
+
+
+### Bug Fixes
+
+* **deps:** update dependency deep-eql to v5 ([#180](https://github.com/meyfa/group-items/issues/180)) ([e70bed0](https://github.com/meyfa/group-items/commit/e70bed032a1f74c220dc309c8ca3539bca2346aa))
+
 ## [3.0.3](https://github.com/meyfa/group-items/compare/v3.0.2...v3.0.3) (2023-07-23)
 
 
