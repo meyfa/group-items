@@ -2,6 +2,7 @@
   "name": "group-items",
   "version": "3.0.3",
   "description": "Group arrays by complex keys into polymorphic structures",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -9,11 +10,11 @@
   ],
   "scripts": {
     "build": "node -e \"fs.rmSync('./dist',{force:true,recursive:true})\" && tsc",
-    "test": "mocha --require ts-node/register --recursive \"test/**/*.test.*\"",
+    "test": "mocha --recursive \"test/**/*.test.*\"",
     "lint": "tsc --noEmit -p tsconfig.lint.json && eslint --ignore-path .gitignore .",
     "lint-fix": "tsc --noEmit -p tsconfig.lint.json && eslint --fix --ignore-path .gitignore .",
     "coverage": "c8 --all --src=src --reporter=text --reporter=lcov npm test",
-    "benchmark": "ts-node benchmark/index.ts",
+    "benchmark": "ts-node --esm benchmark/index.ts",
     "prepack": "npm run build"
   },
   "repository": {

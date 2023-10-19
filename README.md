@@ -34,12 +34,11 @@ generated and there are other collectors in addition to `.asObject()`.
 
 ## Usage
 
-```js
-// ESM / TypeScript:
-import { group } from 'group-items'
+Warning: From version 4.0.0 onwards, group-items is a native ES module and
+cannot be used in a CommonJS environment.
 
-// CommonJS:
-const { group } = require('group-items')
+```js
+import { group } from 'group-items'
 ```
 
 The basic workflow is as follows:
