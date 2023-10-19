@@ -9,24 +9,24 @@ const sampleData = {
   numbers100k: Array.from({ length: 100_000 }, (_, i) => i),
   objects: Array.from({ length: 10_000 }, () => ({
     cellName: faker.music.genre(),
-    name: faker.name.fullName(),
+    name: faker.person.fullName(),
     test: faker.lorem.paragraph()
   })),
   objectKeys100: Array.from({ length: 100 }, () => ({
     date: {
       year: 2022,
-      month: faker.datatype.number({ min: 0, max: 11 }),
-      day: faker.datatype.number({ min: 1, max: 31 })
+      month: faker.number.int({ min: 0, max: 11 }),
+      day: faker.number.int({ min: 1, max: 31 })
     },
-    payload: faker.datatype.array(10)
+    payload: Array.from({ length: 10 }, () => faker.string.sample())
   })),
   objectKeys1000: Array.from({ length: 1_000 }, () => ({
     date: {
       year: 2022,
-      month: faker.datatype.number({ min: 0, max: 11 }),
-      day: faker.datatype.number({ min: 1, max: 31 })
+      month: faker.number.int({ min: 0, max: 11 }),
+      day: faker.number.int({ min: 1, max: 31 })
     },
-    payload: faker.datatype.array(10)
+    payload: Array.from({ length: 10 }, () => faker.string.sample())
   }))
 }
 
