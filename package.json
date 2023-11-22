@@ -45,7 +45,7 @@
   "devDependencies": {
     "@faker-js/faker": "8.1.0",
     "@meyfa/eslint-config": "5.0.0",
-    "@types/mocha": "10.0.2",
+    "@types/mocha": "10.0.6",
     "@types/node": "20.8.10",
     "c8": "8.0.0",
     "eslint": "8.54.0",
