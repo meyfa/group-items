@@ -46,7 +46,7 @@
     "@faker-js/faker": "8.1.0",
     "@meyfa/eslint-config": "5.0.0",
     "@types/mocha": "10.0.6",
-    "@types/node": "20.8.10",
+    "@types/node": "20.10.6",
     "c8": "8.0.0",
     "eslint": "8.56.0",
     "eslint-plugin-jsdoc": "47.0.2",
