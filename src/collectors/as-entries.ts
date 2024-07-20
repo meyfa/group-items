@@ -1,5 +1,8 @@
 import { Grouping, GroupingEntry } from '../types.js'
 
+/**
+ * Options for collecting grouped items as entries.
+ */
 export interface EntriesCollectorOptions {
   keyName?: string
   itemsName?: string
