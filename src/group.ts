@@ -22,10 +22,16 @@ export type KeyingFunction<K, V> = (t: V, idx: number) => K
  */
 export type GroupingFunction<V> = <K = any> (key: string | KeyingFunction<K, V>) => Collectable<K, V>
 
+/**
+ * Container for items to be grouped. Continue by defining the keying function.
+ */
 export interface Groupable<V> {
   readonly by: GroupingFunction<V>
 }
 
+/**
+ * Grouping of items by key. The contents can be collected in a variety of formats.
+ */
 export interface Collectable<K, V> {
   readonly asArrays: ArraysCollector<V>
   readonly asEntries: EntriesCollector<K, V>
