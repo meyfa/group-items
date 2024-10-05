@@ -10,11 +10,11 @@
   ],
   "scripts": {
     "build": "node -e \"fs.rmSync('./dist',{force:true,recursive:true})\" && tsc",
-    "test": "mocha --recursive \"test/**/*.test.*\"",
+    "test": "mocha --require tsx --recursive \"test/**/*.test.*\"",
     "lint": "tsc --noEmit -p tsconfig.lint.json && eslint --ignore-path .gitignore .",
     "lint-fix": "tsc --noEmit -p tsconfig.lint.json && eslint --fix --ignore-path .gitignore .",
     "coverage": "c8 --all --src=src --reporter=text --reporter=lcov npm test",
-    "benchmark": "ts-node --esm benchmark/index.ts",
+    "benchmark": "tsx benchmark/index.ts",
     "prepack": "npm run build"
   },
   "repository": {
@@ -50,7 +50,7 @@
     "c8": "10.1.2",
     "eslint": "8.57.1",
     "mocha": "10.7.3",
-    "ts-node": "10.9.2",
+    "tsx": "4.19.1",
     "typescript": "5.6.2"
   },
   "dependencies": {
