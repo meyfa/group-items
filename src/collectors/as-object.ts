@@ -28,7 +28,6 @@ export type ObjectCollector<K, V> = () => ObjectCollection<Extract<K, keyof any>
  */
 export function asObjectFactory<K, V> (groups: Grouping<K, V>): ObjectCollector<K, V> {
   return () => {
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     const obj = {} as ObjectCollection<Extract<K, keyof any>, V>
     for (const group of groups) {
       if (isObjectAssignable(group.key)) {

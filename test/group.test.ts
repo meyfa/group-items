@@ -2,7 +2,7 @@ import assert from 'node:assert'
 import { group } from '../src/group.js'
 
 describe('group.ts', function () {
-  it("has function property 'by'", function () {
+  it('has function property \'by\'', function () {
     assert.strictEqual(typeof group([]).by, 'function')
   })
 
