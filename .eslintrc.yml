@@ -1,9 +1,0 @@
-extends:
-  - '@meyfa/eslint-config'
-
-parserOptions:
-  project: './tsconfig.lint.json'
-
-overrides:
-  - files: ['src/**/*.ts']
-    extends: '@meyfa/eslint-config/jsdoc'

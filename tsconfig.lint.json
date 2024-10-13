@@ -1,9 +1,13 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true
+  },
   "include": [
     "src",
     "typings",
     "test",
-    "benchmark"
+    "benchmark",
+    "eslint.config.js"
   ]
 }
