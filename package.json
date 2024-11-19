@@ -44,11 +44,11 @@
   },
   "devDependencies": {
     "@faker-js/faker": "9.2.0",
-    "@meyfa/eslint-config": "8.0.0",
+    "@meyfa/eslint-config": "8.0.1",
     "@types/mocha": "10.0.9",
     "@types/node": "22.9.0",
     "c8": "10.1.2",
-    "eslint": "9.14.0",
+    "eslint": "9.15.0",
     "mocha": "10.8.2",
     "tsx": "4.19.2",
     "typescript": "5.6.3"
