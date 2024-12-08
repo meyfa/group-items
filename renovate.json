@@ -29,7 +29,7 @@
       "automerge": true
     },
     {
-      "matchPackagePatterns": ["^@octokit/"],
+      "matchPackageNames": ["/^@octokit//"],
       "groupName": "octokit packages"
     }
   ]
