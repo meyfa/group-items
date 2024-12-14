@@ -1,4 +1,4 @@
-import { Grouping, GroupingEntry } from '../types.js'
+import type { Grouping, GroupingEntry } from '../types.js'
 
 /**
  * Options for collecting grouped items as entries.

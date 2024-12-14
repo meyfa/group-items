@@ -1,6 +1,6 @@
 import assert from 'node:assert'
 import { asObjectFactory } from '../../src/collectors/as-object.js'
-import { Grouping } from '../../src/types.js'
+import type { Grouping } from '../../src/types.js'
 
 describe('collectors/as-object.ts', function () {
   it('returns empty object for empty input', function () {
