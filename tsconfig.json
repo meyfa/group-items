@@ -2,10 +2,12 @@
   "compilerOptions": {
     "lib": ["ES2022"],
     "target": "ES2022",
-    "module": "ES2022",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "strict": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
     "declaration": true,
     "outDir": "./dist",
     "typeRoots" : [

@@ -1,4 +1,4 @@
-import { Grouping } from '../types.js'
+import type { Grouping } from '../types.js'
 
 export type ArraysCollection<V> = V[][]
 

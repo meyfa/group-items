@@ -1,12 +1,12 @@
 import deepEql from 'deep-eql'
 
-import { Grouping } from './types.js'
-import { ArraysCollector, asArraysFactory } from './collectors/as-arrays.js'
-import { asEntriesFactory, EntriesCollector } from './collectors/as-entries.js'
-import { asMapFactory, MapCollector } from './collectors/as-map.js'
-import { asObjectFactory, ObjectCollector } from './collectors/as-object.js'
-import { asTuplesFactory, TuplesCollector } from './collectors/as-tuples.js'
-import { KeysCollector, keysFactory } from './collectors/keys.js'
+import type { Grouping } from './types.js'
+import { type ArraysCollector, asArraysFactory } from './collectors/as-arrays.js'
+import { asEntriesFactory, type EntriesCollector } from './collectors/as-entries.js'
+import { asMapFactory, type MapCollector } from './collectors/as-map.js'
+import { asObjectFactory, type ObjectCollector } from './collectors/as-object.js'
+import { asTuplesFactory, type TuplesCollector } from './collectors/as-tuples.js'
+import { type KeysCollector, keysFactory } from './collectors/keys.js'
 
 export type KeyingFunction<K, V> = (t: V, idx: number) => K
 
