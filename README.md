@@ -1,8 +1,6 @@
 # group-items
 
 [![CI](https://github.com/meyfa/group-items/actions/workflows/main.yml/badge.svg)](https://github.com/meyfa/group-items/actions/workflows/main.yml)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/5935873a1c2a7f1ac334/test_coverage)](https://codeclimate.com/github/meyfa/group-items/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/5935873a1c2a7f1ac334/maintainability)](https://codeclimate.com/github/meyfa/group-items/maintainability)
 
 `group-items` is a TypeScript/JavaScript module for grouping arrays by some
 key, primitive or complex, and into whatever structure you desire.
