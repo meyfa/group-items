@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/meyfa/group-items/compare/v4.0.0...v4.1.0) (2025-11-03)
+
+
+### Features
+
+* Enable TS option verbatimModuleSyntax ([#259](https://github.com/meyfa/group-items/issues/259)) ([b53f16e](https://github.com/meyfa/group-items/commit/b53f16e617a3637cc5726b6a774fed78bfe0e5a5))
+
 ## [4.0.0](https://github.com/meyfa/group-items/compare/v3.0.3...v4.0.0) (2023-10-19)
 
 
