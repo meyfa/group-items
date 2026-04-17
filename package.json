@@ -51,7 +51,7 @@
     "eslint": "9.39.4",
     "mocha": "11.7.5",
     "tsx": "4.21.0",
-    "typescript": "5.9.3"
+    "typescript": "6.0.3"
   },
   "dependencies": {
     "deep-eql": "^5.0.0"
